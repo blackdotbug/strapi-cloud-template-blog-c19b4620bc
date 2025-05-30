@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_datasets_json_data",
+  "info": {
+    "displayName": "JSON_data",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "json_data": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

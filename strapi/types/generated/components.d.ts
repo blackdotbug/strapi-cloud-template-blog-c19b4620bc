@@ -1,75 +1,71 @@
-import type { Struct, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface DatasetsApiLink extends Struct.ComponentSchema {
+  collectionName: 'components_datasets_api_links';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
     description: '';
+    displayName: 'api_link';
+    icon: 'cloud';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    api_url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface DatasetsCsvUpload extends Struct.ComponentSchema {
+  collectionName: 'components_datasets_csv_uploads';
   info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
+    displayName: 'csv_upload';
+    icon: 'file';
   };
   attributes: {
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    csv_file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
   };
 }
 
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
+export interface DatasetsJsonData extends Struct.ComponentSchema {
+  collectionName: 'components_datasets_json_data';
   info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
-    description: '';
+    displayName: 'JSON_data';
+    icon: 'code';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    json_data: Schema.Attribute.JSON & Schema.Attribute.Required;
   };
 }
 
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
+export interface ElementsStat extends Struct.ComponentSchema {
+  collectionName: 'components_elements_stats';
   info: {
-    displayName: 'Quote';
-    icon: 'indent';
+    displayName: 'Stat';
+    icon: 'lightbulb';
   };
   attributes: {
-    title: Schema.Attribute.String;
-    body: Schema.Attribute.Text;
-  };
-}
-
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
-  info: {
-    displayName: 'Media';
-    icon: 'file-video';
-  };
-  attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    stat_context: Schema.Attribute.Blocks;
+    stat_icon: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<
+        'plugin::icons-field.icon',
+        {
+          output: 'svg';
+        }
+      >;
+    stat_media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    stat_title: Schema.Attribute.String & Schema.Attribute.Required;
+    stat_units: Schema.Attribute.String & Schema.Attribute.Required;
+    stat_value: Schema.Attribute.Decimal & Schema.Attribute.Required;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.slider': SharedSlider;
-      'shared.seo': SharedSeo;
-      'shared.rich-text': SharedRichText;
-      'shared.quote': SharedQuote;
-      'shared.media': SharedMedia;
+      'datasets.api-link': DatasetsApiLink;
+      'datasets.csv-upload': DatasetsCsvUpload;
+      'datasets.json-data': DatasetsJsonData;
+      'elements.stat': ElementsStat;
     }
   }
 }
