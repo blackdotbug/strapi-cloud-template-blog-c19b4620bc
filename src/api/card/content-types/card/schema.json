@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cards",
+  "info": {
+    "singularName": "card",
+    "pluralName": "cards",
+    "displayName": "Card",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "card_title": {
+      "type": "string",
+      "required": true
+    },
+    "card_filter_categories": {
+      "type": "customField",
+      "customField": "plugin::tagsinput.tags"
+    },
+    "card_accent_color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "card_placement": {
+      "type": "customField",
+      "options": {
+        "group": {
+          "groupNameField": "card_filter_categories",
+          "columnsNumber": 3,
+          "order2dDirection": "horizontal"
+        }
+      },
+      "customField": "plugin::group-arrange-strapi-plugin.order2d"
+    },
+    "chart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chart.chart",
+      "inversedBy": "card"
+    }
+  }
+}

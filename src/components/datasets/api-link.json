@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_datasets_api_links",
+  "info": {
+    "displayName": "api_link",
+    "icon": "cloud",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "api_url": {
+      "type": "string",
+      "required": true,
+      "regex": "[(http(s)?):\\/\\/(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+    }
+  }
+}

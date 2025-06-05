@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "charts",
+  "info": {
+    "singularName": "chart",
+    "pluralName": "charts",
+    "displayName": "chart",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "chart_title": {
+      "type": "string",
+      "required": true
+    },
+    "chart_type": {
+      "type": "enumeration",
+      "enum": [
+        "line",
+        "bar",
+        "stat"
+      ],
+      "required": true
+    },
+    "data_date": {
+      "type": "date",
+      "required": true
+    },
+    "data_source": {
+      "type": "dynamiczone",
+      "components": [
+        "datasets.json-data",
+        "datasets.csv-upload",
+        "datasets.api-link",
+        "elements.stat"
+      ],
+      "required": true,
+      "min": 1,
+      "max": 1
+    },
+    "card": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::card.card",
+      "mappedBy": "chart"
+    }
+  }
+}

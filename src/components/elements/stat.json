@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_elements_stats",
+  "info": {
+    "displayName": "Stat",
+    "icon": "lightbulb"
+  },
+  "options": {},
+  "attributes": {
+    "stat_title": {
+      "type": "string",
+      "required": true
+    },
+    "stat_value": {
+      "type": "decimal",
+      "required": true
+    },
+    "stat_units": {
+      "type": "string",
+      "required": true
+    },
+    "stat_icon": {
+      "type": "customField",
+      "options": {
+        "output": "svg"
+      },
+      "customField": "plugin::icons-field.icon"
+    },
+    "stat_media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "stat_context": {
+      "type": "blocks"
+    }
+  }
+}
