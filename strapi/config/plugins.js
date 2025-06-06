@@ -1,4 +1,10 @@
-module.exports = () => ({   
+module.exports = () => ({  
+    "strapi-csv-import-export": {
+          config: {
+            authorizedExports: ["api::card.card","api::chart.chart"],
+            authorizedImports: ["api::card.card","api::chart.chart"]
+    }
+    },
     'icons-field': {
         enabled: true,
         config: {

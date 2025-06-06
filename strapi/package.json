@@ -23,6 +23,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-csv-import-export": "^0.0.6",
     "strapi-plugin-icons-field": "^0.1.3",
     "strapi-plugin-required-relation-field": "^0.3.0",
     "strapi-plugin-tagsinput": "^2.0.2",
