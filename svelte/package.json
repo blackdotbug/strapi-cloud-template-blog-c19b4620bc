@@ -35,5 +35,9 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"d3-fetch": "^3.0.1",
+		"svelteplot": "^0.3.6"
 	}
 }
